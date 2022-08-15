@@ -1,0 +1,52 @@
+<%- include('./partials/header.ejs') %>
+
+<div class="student_container">
+    <div class="add_student">
+        <h2>Add New Students</h2>
+        <form action="" method="post">
+            <p>Name</p>
+            <input type="text" id="name" name="name" />
+            <p>Age</p>
+            <input type="number" name="age"/>
+            <p>Fees</p>
+            <input type="number" name="fees" />
+            <br> <br>
+            <!-- <input type="submit" value="Submit"> -->
+            <button type="submit">Submit</button>
+        </form>
+        
+    </div>
+    <div class="list_of_student">
+        <h3>List of Students</h3>
+        <table>
+            <tr>
+                <th>no</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Fees</th>
+                <th>Action</th>
+            </tr>
+            
+                <% data.forEach((value, index) => {  %>
+                    <tr>
+                    <td> <%= index+1 %> </td>
+                    <td><%= value.name %></td>
+                    <td><%= value.age %></td>
+                    <td><%= value.fees %></td>
+                    <td class="edit" >
+                    <form action="/home/edit/<%= value._id %>">
+                        <button type="submit">edit</button>
+                    </form>
+                </td>
+                <td class="delete" >
+                    <form action="/home/delete/<%= value._id %>" method="post"> 
+                        <button type="submit">delete</button>
+                    </form>
+                </td>
+                </tr>
+                <% }) %>
+            
+        </table>
+    </div>
+</div>
+<%- include('./partials/footer.ejs') %>

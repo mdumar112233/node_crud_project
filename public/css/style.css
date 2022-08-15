@@ -1,0 +1,21 @@
+.student_container {
+    display: flex;
+    justify-content: center;
+    width: 80%;
+}
+.add_student {
+    margin-right: 40px;
+}
+
+table th {
+    padding: 3px;
+}
+
+.edit, .delete {
+    cursor: pointer;
+}
+
+.update_container {
+    width: 100%;
+    margin: 0 auto;
+}
